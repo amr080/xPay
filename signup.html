@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script type="module">
+        // Import the necessary Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBSUv3W5wn2PGwq2pQgemKW122lXhkiI50",
+            authDomain: "xft-xpay.firebaseapp.com",
+            projectId: "xft-xpay",
+            storageBucket: "xft-xpay.appspot.com",
+            messagingSenderId: "204698163481",
+            appId: "1:204698163481:web:0e125fc327520037734d88",
+            measurementId: "G-Y9S70L5X8D"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Function to handle the signup process
+        window.handleSignUp = async (event) => {
+            event.preventDefault();  // Prevent the form from submitting the traditional way
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                console.log('User created:', userCredential.user);
+                // Redirect the user or handle the signup success case
+                window.location.href = 'onboarding.html';
+            } catch (error) {
+                console.error('Error signing up:', error.message);
+                // Handle errors here, such as showing an error message to the user
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Create Your xPay Account</h1>
+    <form id="signup-form" onsubmit="handleSignUp(event)">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Sign Up">
+    </form>
+</body>
+</html>

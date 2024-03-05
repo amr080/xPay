@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>X Financial Technologies</title>
+</head>
+<body>
+    <h2>Welcome to xPay!</h2>
+    <button id="connectWallet">Connect Wallet</button>
+
+    <div>
+        <h3>Deposit Ether</h3>
+        <input type="text" id="depositAmount" placeholder="Amount in Ether">
+        <button id="deposit">Deposit</button>
+    </div>
+
+    <div>
+        <h3>Send Ether</h3>
+        <input type="text" id="sendAmount" placeholder="Amount in Ether">
+        <input type="text" id="recipientAddress" placeholder="Recipient Address">
+        <input type="text" id="sendMessage" placeholder="Message">
+        <button id="send">Send</button>
+    </div>
+
+    <div>
+        <h3>Manage Friends</h3>
+        <input type="text" id="friendAddress" placeholder="Friend's Address">
+        <button id="addFriend">Add Friend</button>
+        <button id="sendFriendRequest">Send Friend Request</button>
+    </div>
+
+    <!-- Button to navigate to profile.html -->
+    <button onclick="window.location.href='profile.html'">View Profile</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
